@@ -45,7 +45,7 @@ function wp_scf_add_defaults() {
 			'wp_scf_enable_message'  => 1,
 			'wp_scf_carbon'          => 1,
 			'wp_scf_success_details' => 1,
-			'wp_scf_gdpr_message'    => __('I consent to having this website store my submitted information so they can respond to my inquiry. See our privacy policy to learn more how we use data.', 'wp-scf'),
+			'wp_scf_gdpr_message'    => __('I have read and accept the Privacy Policy and Terms & Conditions. I consent to having this website store my submitted information so they can respond to my inquiry.', 'wp-scf'),
 			'wp_scf_gdpr_position'   => 'after_submit',
 			'wp_scf_mail_function'   => 0,
 			

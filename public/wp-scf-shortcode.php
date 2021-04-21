@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-function simple_contact_form() {
+function wp_simple_contact_form() {
 	
 	if (wp_scf_input_filter()) {
 		
@@ -31,7 +31,7 @@ function wp_scf_shortcode() {
 	return wp_scf_display_contact_form();
 	
 }
-add_shortcode('simple_contact_form','wp_scf_shortcode');
+add_shortcode('wp_simple_contact_form','wp_scf_shortcode');
 
 
 function wp_scf_display_contact_form() {
@@ -641,7 +641,7 @@ function wp_scf_input_shortcode( $atts = array(), $content ) {
 return '<input type="' . esc_attr( $settings['type'] ) . '" name="' . esc_attr( $settings['name'] ) . '" value="' . esc_attr( $settings['value'] ) . '"' . $extra_atts .' />';
 
 } 
-add_shortcode('simple_contact_form_input', 'wp_scf_input_shortcode');
+add_shortcode('wp_simple_contact_form_input', 'wp_scf_input_shortcode');
 
 
 /**
@@ -657,5 +657,5 @@ function wp_scf_date_shortcode( $atts = array(), $content = '' ) {
 return current_time( $content );
 
 } 
-add_shortcode('simple_contact_form_date', 'wp_scf_date_shortcode');
+add_shortcode('wp_simple_contact_form_date', 'wp_scf_date_shortcode');
 
