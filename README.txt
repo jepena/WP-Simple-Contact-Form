@@ -1,15 +1,13 @@
 === WP Simple Contact Form ===
 Plugin Name:       WP Simple Contact Form
 Tags: contact, form, contact form, email, mail,  captcha, spam, anti spam, anti-spam, antispam
-Plugin URI:        https://jepena.github.io/
+Plugin URI:        https://github.com/jepena/WP-Simple-Contact-Form
 Description:       WP Simple Contact Form the Simple but flexible form.
 Version:           1.0.0
 Author:            Jacinto Pena Jr
 Author URI:        https://jepena.github.io/
 License:           GPL-2.0+
 License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
-Donate link:       https://jepena.github.io/
-Requires at least: 4.1
 Tested up to:      5.7
 Requires PHP:      >= 5.2 
 
