@@ -17,6 +17,14 @@ function wp_scf_init() {
 }
 add_action ('admin_init', 'wp_scf_init');
 
+function wp_scf_delete_plugin_options() {	
+	delete_option('wp_scf_options');
+}
+
+if ($wp_scf_options['default_options'] == 1) {
+	register_uninstall_hook (__FILE__, 'wp_scf_delete_plugin_options');
+}
+
 
 function wp_scf_add_defaults() {
 	

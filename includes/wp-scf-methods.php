@@ -166,3 +166,11 @@ function wp_scf_default_styles() {
   .wp-scf-website3dhhsy3 { display: none; }';
 
 }
+
+
+function wp_scf_get_field_value( $name ) {
+
+	$message = isset($_POST[$name]) ? stripslashes(trim($_POST[$name])) : '';
+	return $message;
+
+}

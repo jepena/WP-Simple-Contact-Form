@@ -1,6 +1,6 @@
 === WP Simple Contact Form ===
 Plugin Name:       WP Simple Contact Form
-Tags: contact, form, contact form, email, mail,  captcha, spam, anti spam, anti-spam, antispam
+Tags:              contact, form, contact form, email, mail,  captcha, antispam
 Plugin URI:        https://github.com/jepena/WP-Simple-Contact-Form
 Description:       WP Simple Contact Form the Simple but flexible form.
 Version:           1.0.0
