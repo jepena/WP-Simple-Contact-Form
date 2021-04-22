@@ -113,6 +113,14 @@ function wp_scf_display_contact_form() {
 				</div>';
 	}
 
+  if ((!isset($wp_scf_options['wp_scf_enable_message'])) || (isset($wp_scf_options['wp_scf_enable_message']) && $wp_scf_options['wp_scf_enable_message'])) {
+		$wp_scf_message = '
+				<div class="wp-scf-row wp-scf-message">
+					<label for="wp-scf_message">'. $messtext .'</label>
+					'. $wp_scf_strings['message'] .'
+				</div>';
+	}
+
 	//
 	if ( $recaptcha ) {
 		if ( $recaptcha_version == 'v2' ) {
@@ -177,7 +185,7 @@ function wp_scf_display_contact_form() {
 			' . $wp_scf_strings['confirm_email'] . '
 		</div>';
 	}
-		
+	
 	$wp_scf_form = '<div id="wp-simple-contact-form-wrap">' . do_shortcode( $preform ) . '
 		<div id="wp-simple-contact-form" class="wp-scf">
 			<form action="#wp-simple-contact-form-wrap" method="post">
@@ -287,8 +295,8 @@ function wp_scf_process_contact_form() {
 	
 	$date    = date_i18n(get_option('date_format'), current_time('timestamp')) .' @ '. date_i18n(get_option('time_format'), current_time('timestamp'));
 	
-    $topic   = (isset($_POST['wp_scf_subject']) && !empty($_POST['wp_scf_subject'])) ? stripslashes(strip_tags(trim($_POST['wp_scf_subject']))) : $subject;
-    $topic   = do_shortcode( $topic );
+  $topic   = (isset($_POST['wp_scf_subject']) && !empty($_POST['wp_scf_subject'])) ? stripslashes(strip_tags(trim($_POST['wp_scf_subject']))) : $subject;
+  $topic   = do_shortcode( $topic );
 	
 	$name    = isset($_POST['wp_scf_name']) ? stripslashes(strip_tags(trim($_POST['wp_scf_name']))) : '';
 	$topic = str_replace( '{name}', $name, $topic );
