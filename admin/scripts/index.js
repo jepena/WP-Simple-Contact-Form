@@ -1,7 +1,6 @@
-jQuery(function ($, window, document) {
+jQuery(function ($) {
   
   $(document).ready(function(){
-
     // Tabs Panel
     var activeIndex = $('.active-tab').index(),
       $contentlis = $('.tabs-content .postbox'),
@@ -21,4 +20,4 @@ jQuery(function ($, window, document) {
 
   });
 
-})($, window, document);
+});

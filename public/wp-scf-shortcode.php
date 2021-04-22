@@ -102,7 +102,7 @@ function wp_scf_display_contact_form() {
 	$wp_scf_message = '';
 	$wp_scf_recaptcha = '';
 	
-	if (!empty($subject)) {
+	if (!empty($wp_scf_options['wp_scf_input_subject']) && isset($wp_scf_options['wp_scf_input_subject'])) {
 		$subjtext = !empty($subjtext) ? '<label for="wp_scf_subject">'. $subjtext .'</label>' : "";
 		$subjtext_label_class = !empty($subjtext) ? 'label-present' : "";
 
@@ -114,9 +114,11 @@ function wp_scf_display_contact_form() {
 	}
 
   if ((!isset($wp_scf_options['wp_scf_enable_message'])) || (isset($wp_scf_options['wp_scf_enable_message']) && $wp_scf_options['wp_scf_enable_message'])) {
+    $messtext = !empty($messtext) ? '<label for="wp_scf_message">'. $messtext .'</label>' : "";
+    $messtext_label_class = !empty($messtext) ? 'label-present' : "";
 		$wp_scf_message = '
-				<div class="wp-scf-row wp-scf-message">
-					<label for="wp-scf_message">'. $messtext .'</label>
+				<div class="wp-scf-row  '.$messtext_label_class.' wp-scf-message">
+					'. $messtext .'
 					'. $wp_scf_strings['message'] .'
 				</div>';
 	}
@@ -500,16 +502,16 @@ function wp_scf_input_filter() {
 		$wp_scf_strings['email']  = '<input class="wp_scf_error" name="wp_scf_email" id="wp_scf_email" type="text" size="33" maxlength="99" ';
 		$wp_scf_strings['email'] .= 'value="'. $input_email .'" '. $style .' placeholder="'. $email .'" />';
 		
-    }
+  }
     
-    if ( ! empty( $wp_scf_options['wp_scf_input_confirm_email'] ) && ! empty( $wp_scf_options['wp_scf_confirm_mailtext'] ) && $input_email != $input_confirm_email ) {
+  if ( ! empty( $wp_scf_options['wp_scf_input_confirm_email'] ) && ! empty( $wp_scf_options['wp_scf_confirm_mailtext'] ) && $input_email != $input_confirm_email ) {
 
-        $pass = false;
-        $wp_scf_strings['error'] = '<p class="wp_scf_error">' . esc_html__('Confirmation email needs to match email. ', 'wp-scf') . '</p>';
-        $wp_scf_strings['confirm_email']  = '<input class="wp_scf_error" name="wp_scf_confirm_email" id="wp_scf_confirm_email" type="text" size="33" maxlength="99" ';
-        $wp_scf_strings['confirm_email'] .= 'value="'. $input_confirm_email .'" '. $style .' placeholder="'. $confirm_email .'" />';
-        
-    }
+    $pass = false;
+    $wp_scf_strings['error'] = '<p class="wp_scf_error">' . esc_html__('Confirmation email needs to match email. ', 'wp-scf') . '</p>';
+    $wp_scf_strings['confirm_email']  = '<input class="wp_scf_error" name="wp_scf_confirm_email" id="wp_scf_confirm_email" type="text" size="33" maxlength="99" ';
+    $wp_scf_strings['confirm_email'] .= 'value="'. $input_confirm_email .'" '. $style .' placeholder="'. $confirm_email .'" />';
+      
+  }
 	
 	if (empty($show_subject) && empty($input_subject)) {
 		
