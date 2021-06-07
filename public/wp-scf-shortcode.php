@@ -247,7 +247,7 @@ function wp_scf_process_contact_form() {
 	$recipname 	= $wp_scf_options['wp_scf_name'];
 	$recipsite 	= $wp_scf_options['wp_scf_website'];
 	$success   	= $wp_scf_options['wp_scf_success'];
-	$phone   		= $wp_scf_options['wp_scf_phone'];
+	$phone   	= $wp_scf_options['wp_scf_phone'];
 	$subject   	= $wp_scf_options['wp_scf_subject'];
 	$prepend   	= $wp_scf_options['wp_scf_prepend'];
 	$append    	= $wp_scf_options['wp_scf_append'];
@@ -315,7 +315,7 @@ function wp_scf_process_contact_form() {
 	
 	$from    = !empty($recipfrom) ? $recipfrom : $email;
 	
-	$ip      = sanitize_text_field(scf_get_ip_address());
+	$ip      = sanitize_text_field(wp_scf_get_ip_address());
 	
 	$style   = !empty($custom) ? '<style type="text/css">'. $custom .'</style>' : '';
 	
@@ -420,20 +420,21 @@ function wp_scf_process_contact_form() {
 
 function wp_scf_input_filter() {
 	
-	global $wp_scf_options, $wp_scf_strings, $wp_scf_value_name, $wp_scf_value_email, $wp_scf_value_confirm_email, $wp_scf_value_subject, $wp_scf_value_message, $wp_scf_value_response;
+	global $wp_scf_options, $wp_scf_strings, $wp_scf_value_name, $wp_scf_value_email, $wp_scf_value_confirm_email, $wp_scf_value_phone, $wp_scf_value_subject, $wp_scf_value_message, $wp_scf_value_response;
 
 	global $wp_scf_processed;
 	
 	$input_name     			= $wp_scf_value_name;
 	$input_email    			= $wp_scf_value_email;
-	$input_confirm_email 	= $wp_scf_value_confirm_email;
+	$input_confirm_email 		= $wp_scf_value_confirm_email;
 	$input_subject  			= $wp_scf_value_subject;
+	$input_phone  				= $wp_scf_value_phone;
 	$input_message  			= $wp_scf_value_message;
 	$input_response 			= $wp_scf_value_response;
 	
 	$name    					= isset($wp_scf_options['wp_scf_input_name'])    ? $wp_scf_options['wp_scf_input_name']    : '';
 	$email   					= isset($wp_scf_options['wp_scf_input_email'])   ? $wp_scf_options['wp_scf_input_email']   : '';
-	$confirm_email   	= isset($wp_scf_options['wp_scf_input_confirm_email']) ? $wp_scf_options['wp_scf_input_confirm_email']   : '';
+	$confirm_email   			= isset($wp_scf_options['wp_scf_input_confirm_email']) ? $wp_scf_options['wp_scf_input_confirm_email']   : '';
 	$subject 					= isset($wp_scf_options['wp_scf_input_subject']) ? $wp_scf_options['wp_scf_input_subject'] : '';
 	$phone 						= isset($wp_scf_options['wp_scf_input_phone']) ? $wp_scf_options['wp_scf_input_phone'] : '';
 	$message 					= isset($wp_scf_options['wp_scf_input_message']) ? $wp_scf_options['wp_scf_input_message'] : '';
@@ -539,7 +540,7 @@ function wp_scf_input_filter() {
 		
 	}
 	
-	if ($show_captcha && (empty($input_response) || !scf_spam_question($input_response))) {
+	if ($show_captcha && (empty($input_response) || !wp_scf_spam_question($input_response))) {
 		
 		$pass = false;
 		$wp_scf_strings['error'] = $spam;

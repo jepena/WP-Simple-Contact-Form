@@ -368,7 +368,7 @@ function wp_scf_render_form() {
 							
 							<h3><?php esc_html_e('Shortcode', 'wp-scf'); ?></h3>
 							<p><?php esc_html_e('Use this shortcode to display the contact form on any WP Post or Page:', 'wp-scf'); ?></p>
-							<p><code class="wp-scf-code">[simple_contact_form]</code></p>
+							<p><code class="wp-scf-code">[wp_simple_contact_form]</code></p>
 							
 							<h3><?php esc_html_e('Template tag', 'wp-scf'); ?></h3>
 							<p><?php esc_html_e('Use this template tag to display the form anywhere in your theme template:', 'wp-scf'); ?></p>
